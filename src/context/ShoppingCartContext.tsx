@@ -24,7 +24,7 @@ type ShoppingCartContext = {
 
 const ShoppingCartContext = createContext({} as ShoppingCartContext)
 
-export function useShoppingCart() {
+export default function useShoppingCart() {
   return useContext(ShoppingCartContext)
 }
 export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
