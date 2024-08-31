@@ -1,8 +1,8 @@
 import { Offcanvas, Stack } from "react-bootstrap";
-import { useShoppingCart } from "../"
-import { CartItem } from "../CartItem";
-import { formatCurrency } from "../";
-import storeItems from "../"
+import  useShoppingCart  from "../../context/ShoppingCartContext"
+import  CartItem from "../CartItem/CartItem";
+import  formatCurrency  from "../../utilities/formatCurrency";
+import storeItems from "../StoreItem"
 
 type ShoppingCartProps = {
   isOpen: boolean
@@ -24,7 +24,7 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
             Total{" "}
             {formatCurrency(
               cartItems.reduce((total, cartItem) => {
-                const item = storeItems.find(i => i.id === cartItem.id)
+                const item = storeItems.find((i: { id: number; }) => i.id === cartItem.id)
                 return total + (item?.price || 0) * cartItem.quantity
               }, 0)
             )}
